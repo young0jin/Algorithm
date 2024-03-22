@@ -5,20 +5,19 @@
 import sys
 from collections import deque
 #n : 인원 수 k : 제거 숫자
-def Josepus(n, k):
-    people = deque()
-    result = []
 
-    for i in range(1, n+1):
-        people.append(i)
+n, k = map(int, sys.stdin.readline().split())
 
-    cnt = 0
-    while people:
-        for i in range(k - 1):
-            people.append(people.popleft())
-        result.append(people.popleft)
+people = deque()
+result = []
+
+for i in range(1, n+1):
+    people.append(i)
+
+while people:
+    for i in range(k - 1):
+        people.append(people.popleft())
+            
+    result.append(people.popleft())
     
-    print("<" + ",".join(map(str, result)) + ">")
-
-n, k = map(int, input().split())
-Josepus(n, k)
+print( "<" + ", ".join(map(str, result)) + ">" )
